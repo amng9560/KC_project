@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  brand: MyString
+  name: MyString
+  expiration_date: 2019-11-19
+  amount: 9.99
+
+two:
+  brand: MyString
+  name: MyString
+  expiration_date: 2019-11-19
+  amount: 9.99
