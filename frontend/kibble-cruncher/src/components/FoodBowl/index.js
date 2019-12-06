@@ -23,7 +23,7 @@ export default class FoodBowl extends Component {
     // }
     
     render(){
-        const {pets, foods, editPet, addPet, deletePet, addFood, editFoodAmount} = this.props
+        const {pets, foods, editPet, addPet, deleteFood, deletePet, addFood, editFoodAmount} = this.props
 
         return(
             <main>
@@ -31,7 +31,7 @@ export default class FoodBowl extends Component {
                 <PetFood 
                 foods={foods} 
                 pets={pets} 
-                deleteFood={this.deleteFood} 
+                deleteFood={deleteFood} 
                 editFoodAmount={editFoodAmount}
             /> 
             </main>

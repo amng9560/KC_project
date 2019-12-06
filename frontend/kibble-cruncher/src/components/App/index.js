@@ -74,7 +74,7 @@ export default class App extends Component {
     addFood = (foodWithPetId) => {
         this.setState({foods: [...this.state.foods, [foodWithPetId]]})
         const body = {...foodWithPetId}
-        return fetch(`http://localhost:3000/users/${this.state.user.id}/pets/${foodWithPetId.pet_id}`, {
+        return fetch(`http://localhost:3000/foods/`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -101,6 +101,10 @@ export default class App extends Component {
     }
 
     editFoodAmount = (food) => {
+        // const newState = this.state.foods.flat(Infinity).filter(f => f.id !== food.food_id)
+        // this.setState({
+        //     foods: [...newState, {amount: food}]
+        // })
         const data = {amount: food}
         return fetch(`http://localhost:3000/foods/${food.food_id}`, {
             method: "PATCH",
@@ -113,6 +117,8 @@ export default class App extends Component {
     }
 
     deleteFood = (id) => {
+        const newState = this.state.foods.flat(Infinity).filter(f => f.id !== id)
+        this.setState({foods: newState})
         fetch(`http://localhost:3000/foods/${id}`, {
             method: "DELETE",
             headers: {

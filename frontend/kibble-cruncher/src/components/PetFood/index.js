@@ -5,8 +5,7 @@ import './app.css'
 export default ({foods, deleteFood, editFoodAmount}) => {
  
     function createCards(){
-        foods.flat().map((food, i) => {
-            console.log(food)
+        return foods.flat().map((food, i) => {
             return <Card key={i} data={food} deleteFood={deleteFood} editFoodAmount={editFoodAmount}/>
             })
         }

@@ -20,7 +20,6 @@ export default class FoodForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         const { addFood } = this.props
-        console.log(this.state)
         addFood(this.state)
         this.setState({ 
             name: "",

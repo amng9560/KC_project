@@ -39,8 +39,9 @@ export default class Card extends Component {
             let expirationDate = moment(date).diff(currentDate, 'days')
             return expirationDate
         }
-        const { data, pet, deletePet, editFoodAmount, deleteFood } = this.props
-        console.log(data)
+        const {data, pet, deletePet, editFoodAmount, deleteFood } = this.props
+
+
         return  pet
                 ?   (
                     <div className="dogCard">
