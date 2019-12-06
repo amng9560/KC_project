@@ -6,6 +6,7 @@ export default ({foods, deleteFood, editFoodAmount}) => {
  
     function createCards(){
         return foods.flat().map((food, i) => {
+            console.log(food)
             return <Card key={i} data={food} deleteFood={deleteFood} editFoodAmount={editFoodAmount}/>
             })
         }

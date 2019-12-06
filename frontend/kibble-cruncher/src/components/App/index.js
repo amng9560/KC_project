@@ -101,10 +101,6 @@ export default class App extends Component {
     }
 
     editFoodAmount = (food) => {
-        // const newState = this.state.foods.flat(Infinity).filter(f => f.id !== food.food_id)
-        // this.setState({
-        //     foods: [...newState, {amount: food}]
-        // })
         const data = {amount: food}
         return fetch(`http://localhost:3000/foods/${food.food_id}`, {
             method: "PATCH",
