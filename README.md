@@ -1,10 +1,6 @@
 # Kibble Cruncher
 > A personal pet food tracker. 
 
-<p align="center">
-  <img src="https://media.giphy.com/media/YTKmol2u3GY1gai3Y4/giphy.gif">
-</p>
-
 ## Table of contents
 * [General info](#general-info)
 * [Technologies](#technologies)
