@@ -3,13 +3,15 @@ import Card from "../Card"
 import './app.css'
 
 export default ({foods, deleteFood, editFoodAmount}) => {
- 
+    
     function createCards(){
-        return foods.flat().map((food, i) => {
-            console.log(food)
-            return <Card key={i} data={food} deleteFood={deleteFood} editFoodAmount={editFoodAmount}/>
+        if(foods !== [null]) {
+            console.log(foods)
+            return foods.flat().map((food, i) => {
+                return <Card key={i} data={food} deleteFood={deleteFood} editFoodAmount={editFoodAmount}/>
             })
         }
+    }
 
     return (
         <div className="foodContainer"> 

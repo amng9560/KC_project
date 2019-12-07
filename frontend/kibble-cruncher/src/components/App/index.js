@@ -50,9 +50,7 @@ export default class App extends Component {
                     pets: response.data,
                     foods: response.data.map(pet => {
                         const { foods } = pet.attributes
-                        return foods && foods.length > 0 
-                         ? foods
-                         : null
+                        return foods
                     })
                 })
         })
@@ -84,13 +82,13 @@ export default class App extends Component {
         })
     }
 
-    editPet = (pet) => {
-        const body = {...pet, user_id: this.state.user.id}
-        const newState = this.state.pets.filter(p => p.id !== pet.id)
+    editPet = (updatedPet) => {
+        const body = {...updatedPet, user_id: this.state.user.id}
+        const newState = this.state.pets.filter(pet => pet.id !== updatedPet.id)
         this.setState({
-            pets: [...newState, {attributes: {...pet}}]
+            pets: [...newState, {attributes: {...updatedPet}}]
         })
-        return fetch(`http://localhost:3000/users/${this.state.user.id}/pets/${pet.id}`, {
+        return fetch(`http://localhost:3000/users/${this.state.user.id}/pets/${updatedPet.id}`, {
             method: "PATCH",
             headers: {
                 "Content-Type": "application/json",

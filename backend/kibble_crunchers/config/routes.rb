@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   
   resources :users do
     resources :pets, only: [:index, :show, :create, :update] do
-      resources :foods, only: [:index]
+      resources :foods, only: [:index, :create]
     end
   end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

@@ -41,7 +41,6 @@ export default class Card extends Component {
         }
         const {data, pet, deletePet, editFoodAmount, deleteFood } = this.props
 
-
         return  pet
                 ?   (
                     <div className="dogCard">

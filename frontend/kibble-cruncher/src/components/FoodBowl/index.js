@@ -9,13 +9,19 @@ export default class FoodBowl extends Component {
 
         return(
             <main>
-                <Dogs editPet={editPet} addPet={addPet} deletePet={deletePet} pets={pets} addFood={addFood}/>
+                <Dogs 
+                    editPet={editPet}  
+                    addPet={addPet} 
+                    deletePet={deletePet} 
+                    pets={pets} 
+                    addFood={addFood}
+                />
                 <PetFood 
-                foods={foods} 
-                pets={pets} 
-                deleteFood={deleteFood} 
-                editFoodAmount={editFoodAmount}
-            /> 
+                    foods={foods} 
+                    pets={pets} 
+                    deleteFood={deleteFood} 
+                    editFoodAmount={editFoodAmount}
+                /> 
             </main>
         )
     }
