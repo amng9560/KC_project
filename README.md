@@ -12,7 +12,7 @@ Kibble Cruncher is a simple web appplication that allows the users to monitor th
 When the user has fed their pet, they can put the cup amount of food that was given to the pet in the food card. Due to it pessimistically render, the user will need to refresh and then see the food amount, which is in pounds,
 change. 
 
-**Demo:** [YouTube]()
+**Demo:** [YouTube](https://www.youtube.com/watch?v=o-4TNAh9vyc&feature=youtu.be)
 
 ## Technologies
 * React
