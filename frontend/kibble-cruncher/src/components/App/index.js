@@ -37,6 +37,10 @@ export default class App extends Component {
         })
     }
 
+    fetchCall = (url, method, header, body) => {
+        return fetch(url, {method, header, body})
+    }
+
     fetchPets = () => {
         fetch(`http://localhost:3000/users/${this.state.user.id}/pets/`, {
             method: "GET",
