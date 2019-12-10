@@ -37,17 +37,22 @@ export default class App extends Component {
         })
     }
 
-    fetchCall = (url, method, header, body) => {
-        return fetch(url, {method, header, body})
+    fetchCall = (url, method, body) => {
+        const headers = {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${this.state.token}`
+        }
+        return fetch(url, {method, headers, body})
     }
 
     fetchPets = () => {
-        fetch(`http://localhost:3000/users/${this.state.user.id}/pets/`, {
-            method: "GET",
-            headers: {
-                "Authorization": `Bearer ${this.state.token}`
-            }
-        })
+        // fetch(`http://localhost:3000/users/${this.state.user.id}/pets/`, {
+        //     method: "GET",
+        //     headers: {
+        //         "Authorization": `Bearer ${this.state.token}`
+        //     }
+        // })
+        this.fetchCall(`http://localhost:3000/users/${this.state.user.id}/pets/`, "GET")
             .then(response => response.json())
             .then(response => {
                 this.setState({
@@ -61,20 +66,28 @@ export default class App extends Component {
     }
 
     addPet = (pet) => {
-        this.setState({pets: [...this.state.pets, {attributes: {...pet}}]})
-        const body = {...pet, user_id: this.state.user.id}
-        return fetch(`http://localhost:3000/users/${this.state.user.id}/pets/`, {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${this.state.token}`
-            },
-            body: JSON.stringify(body)
+        // this.setState({pets: [...this.state.pets, {attributes: {...pet}}]})
+        const body = JSON.stringify({...pet, user_id: this.state.user.id})
+        // return fetch(`http://localhost:3000/users/${this.state.user.id}/pets/`, {
+        //     method: "POST",
+        //     headers: {
+        //         "Content-Type": "application/json",
+        //         "Authorization": `Bearer ${this.state.token}`
+        //     },
+        //     body: JSON.stringify(body)
+        // })
+        return this.fetchCall(`http://localhost:3000/users/${this.state.user.id}/pets/`, "POST", body)
+        .then(response => response.json())
+        .then(pet => {
+            this.setState({
+                pets: [...this.state.pets, pet.data]
+            })
         })
     }
 
     addFood = (foodWithPetId) => {
-        this.setState({foods: [...this.state.foods, [foodWithPetId]]})
+        // this.setState({foods: [...this.state.foods, [foodWithPetId]]})
+        console.log(this.state.foods)
         const body = {...foodWithPetId}
         return fetch(`http://localhost:3000/foods/`, {
             method: "POST",
@@ -83,15 +96,15 @@ export default class App extends Component {
                 "Authorization": `Bearer ${this.state.token}`
             },
             body: JSON.stringify(body)
+        }).then(response => response.json())
+        .then(food => {
+            this.setState({foods: [...this.state.foods, [food]]})
         })
     }
 
     editPet = (updatedPet) => {
-        const body = {...updatedPet, user_id: this.state.user.id}
+        const body = JSON.stringify({...updatedPet, user_id: this.state.user.id})
         const newState = this.state.pets.filter(pet => pet.id !== updatedPet.id)
-        this.setState({
-            pets: [...newState, {attributes: {...updatedPet}}]
-        })
         return fetch(`http://localhost:3000/users/${this.state.user.id}/pets/${updatedPet.id}`, {
             method: "PATCH",
             headers: {
@@ -99,6 +112,11 @@ export default class App extends Component {
                 "Authorization": `Bearer ${this.state.token}`
             },
             body: JSON.stringify(body)
+        }).then(response => response.json())
+        .then(pet => {
+            this.setState({
+                pets: [...newState, {attributes: pet}]
+            })
         })
     }
 

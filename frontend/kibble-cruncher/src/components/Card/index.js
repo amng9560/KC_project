@@ -40,6 +40,7 @@ export default class Card extends Component {
             return expirationDate
         }
         const {data, pet, deletePet, editFoodAmount, deleteFood } = this.props
+        console.log(data)
 
         return  pet
                 ?   (

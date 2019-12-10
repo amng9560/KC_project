@@ -5,8 +5,7 @@ import './app.css'
 export default ({foods, deleteFood, editFoodAmount}) => {
     
     function createCards(){
-        if(foods !== [null]) {
-            console.log(foods)
+        if(foods !== undefined || foods !== [null] ) {
             return foods.flat().map((food, i) => {
                 return <Card key={i} data={food} deleteFood={deleteFood} editFoodAmount={editFoodAmount}/>
             })

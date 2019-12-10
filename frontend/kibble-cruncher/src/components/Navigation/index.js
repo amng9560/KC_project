@@ -13,42 +13,42 @@ export default ({switchPage, userLoggedIn}) => {
         ?
         <header className="headerContainer">
             <div className="logoContainer">
-                <img className="logo" src="https://www.freelogodesign.org/file/app/client/thumb/7a887583-5149-4427-b762-e06c6c934737_1000x600-watermark.png?20191203"/>
+                <img className="logo" src="https://www.freelogodesign.org/file/app/client/thumb/7a887583-5149-4427-b762-e06c6c934737_1000x600-watermark.png?20191203" alt="logo"/>
                 <a href="/"><h1>Kibble Cruncher</h1></a>
             </div>
             <nav className="navBar">
                 <li className="list" onClick={handleClick}>
-                    <a href="#">Home</a>
+                    Home
                 </li>
                 <li className="list" onClick={handleClick}>
-                    <a href="#">Food Bowl</a>
+                    Food Bowl
                 </li>
                 <li className="list" onClick={handleClick}>
-                    <a href="#">Food List</a>
+                    Food List
                 </li>
                 <li className="list" onClick={handleClick}>
-                    <a href="#">Log Out</a>
+                    Log Out
                 </li>
             </nav>
         </header>
         :
         <header className="headerContainer">
             <div className="logoContainer">
-                <img className="logo" src="https://www.freelogodesign.org/file/app/client/thumb/7a887583-5149-4427-b762-e06c6c934737_1000x600-watermark.png?20191203"/>
+                <img className="logo" src="https://www.freelogodesign.org/file/app/client/thumb/7a887583-5149-4427-b762-e06c6c934737_1000x600-watermark.png?20191203" alt="logo"/>
                 <a href="/"><h1>Kibble Cruncher</h1></a>
             </div>
             <nav className="navBar">
                 <li className="list" onClick={handleClick}>
-                    <a href="#">Home</a>
+                    Home
                 </li>
                 <li className="list" onClick={handleClick}>
-                    <a href="#">Food Bowl</a>
+                    Food Bowl
                 </li>
                 <li className="list" onClick={handleClick}>
-                    <a href="#">Food List</a>
+                    Food List
                 </li>
                 <li className="list" onClick={handleClick}>
-                    <a href="#">Login</a>
+                    Login
                 </li>
             </nav>
         </header>
