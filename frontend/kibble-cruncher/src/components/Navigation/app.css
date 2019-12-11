@@ -14,13 +14,11 @@
 img {
     width: 90px;
     height: 60px;
-    margin-left: 1rem;
 }
 
 h1 {
     font-size: 2rem;
     font-weight: bold;
-    margin-left: 0;
     color: #4195de;
 }
 
@@ -32,16 +30,17 @@ a {
 .logoContainer {
     display: flex;
     align-items: center;
+    justify-content: space-evenly;
 }
 .navBar {
     display:flex;
-    justify-content: space-around;
     padding: 2rem;
     list-style: none;
 }
 
 .list {
-    margin-right: 1rem;
+    flex: 1;
+    text-align: center;
 }
 
 li:hover{

@@ -65,7 +65,8 @@ export default class Login extends Component {
         fetch("http://localhost:3000/authenticate", request)
           .then(response => response.json())
           .then(response => {
-            this.props.logInUser(response.user, response.auth_token)
+            localStorage.setItem('authToken', response.auth_token)
+            this.props.logInUser(response.user)
           })
           .then(
             this.setState({
@@ -79,7 +80,7 @@ export default class Login extends Component {
 
       signUpForm = () => {
         return (
-          <span className="createUser">
+          <form className="createUser">
             <input 
               className="firstName" 
               onChange={this.handleChange} 
@@ -93,11 +94,12 @@ export default class Login extends Component {
               name="lastname" 
               placeholder="Last Name" 
             />
-          </span>
+          </form>
         )
       }
 
       componentDidMount = () => {
+        localStorage.removeItem('authToken')
         return this.props.inUseUser !== false ? this.props.logOutUser() : null
       }
 
